@@ -44,20 +44,10 @@ echo "126 15 Philippine Trench" | gmt pstext -R -J -F+jTL+f10p,Times-Roman,white
 echo "133 19 Philippine Sea" | gmt pstext -R -J -F+f10p,Times-Roman,white -O -K >> $ps
 echo "153 28 Pacific Ocean" | gmt pstext -R -J -F+f10p,Times-Roman,white -O -K >> $ps
 echo "147.5 21 Mariana Trench" | gmt pstext -R -J -F+jBL+f10p,Times-Roman,white+a-80 -O -K >> $ps
-# Step-10. Add text labels
+# Step-10. Add subtitle
 gmt pstext -R -J -X0.0c -Y0.0c -N -O -K \
     -F+f10p,Palatino-Roman,black+jLB >> $ps << EOF
 128.0 37.5 Bathymetry: ETOPO1 Global Relief Model 1 arc min resolution grid
-EOF
-# Step-3. Study area
-gmt psbasemap -R -J \
-    -D138/9.5/151/25.5r -F+pthin,yellow \
-    -O -K >> $ps
-# Step-5. Study area label annotation
-gmt psxy -R -J -Wthick -O -K \
-    -Sqn1:+f10p,Times-Roman,yellow+l"Study Area"+c5p+pthick,yellow+o << EOF >> $ps
-138 10.5
-151 10.5
 EOF
 # Step-11. Add GMT logo
 gmt logo -Dx7.0/-2.2+o0.1i/0.1i+w2c -O >> $ps
