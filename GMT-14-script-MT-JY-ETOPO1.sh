@@ -1,8 +1,8 @@
 #!/bin/sh
-# Purpose: study area square + geometric arcs on the grid raster map ETOPO1 (here: Mariana Trench)
-# GMT modules: grdcut, makecpt, grdimage, psscale, grdcontour, psbasemap, pstext, psxy, gmtlogo
+# Purpose: Bathymetric map of the Mariana Trench, grid raster map ETOPO1.
+# GMT modules: grdcut, makecpt, psscale, grdimage, grdcontour, psbasemap, pstext, logo, psconvert
 # Step-1. Generate a file
-ps=Bathy-JY-MT.ps
+ps=Bathy_JY_MT.ps
 # Step-2. Extract a subset of ETOPO1m for the Mariana Trench area
 grdcut earth_relief_01m.grd -R120/160/0/35 -Gmt_relief.nc
 # Step-3. Make color palette
@@ -51,3 +51,5 @@ gmt pstext -R -J -X0.0c -Y0.0c -N -O -K \
 EOF
 # Step-11. Add GMT logo
 gmt logo -Dx7.0/-2.2+o0.1i/0.1i+w2c -O >> $ps
+# Step-12. Convert to image file using GhostScript (portrait orientation, 720 dpi)
+gmt psconvert Bathy_JY_MT.ps -A0.2c -E720 -Tj -P -Z
