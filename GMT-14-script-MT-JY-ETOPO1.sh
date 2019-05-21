@@ -1,6 +1,6 @@
 #!/bin/sh
 # Purpose: Bathymetric map of the Mariana Trench, grid raster map ETOPO1.
-# GMT modules: grdcut, makecpt, psscale, grdimage, grdcontour, psbasemap, pstext, logo, psconvert
+# GMT modules: gmtset, gmtdefaults, grdcut, makecpt, psscale, grdimage, grdcontour, psbasemap, pstext, logo, psconvert
 # Step-1. Generate a file
 ps=Bathy_JY_MT.ps
 # Step-2. GMT set up
